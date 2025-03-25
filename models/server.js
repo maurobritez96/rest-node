@@ -11,6 +11,7 @@ class Server {
         this.authPath = '/api/auth';
         this.categoriesPath = '/api/categories';
         this.productsPath = '/api/products';
+        this.searchPath = '/api/search';
 
         // db
         this.connectDB();
@@ -36,9 +37,10 @@ class Server {
 
     routes(){
         this.app.use(this.usersPath, require('../routes/users'));
+        this.app.use(this.searchPath, require('../routes/search'));
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.categoriesPath, require('../routes/categories'));
-        // this.app.use(this.productsPath, require('../routes/products'));
+        this.app.use(this.productsPath, require('../routes/products'));
     }
 
     listen(){
