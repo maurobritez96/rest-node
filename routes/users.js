@@ -20,7 +20,7 @@ router.post('/',[
 router.put('/:id',[
     check('id', 'Invalid ID').isMongoId(),
     check('id').custom(existUserById),
-    check('role').custom(isValidRole),
+    // check('role').custom(isValidRole),
     fieldValidator
 ], updateUser)
 router.delete('/:id',[
